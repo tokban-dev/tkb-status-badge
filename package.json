@@ -1,0 +1,16 @@
+{
+  "name": "tokban-status-badge",
+  "repository": {
+    "url": "https://github.com/lzqjcs/tokban-status-badge"
+  },
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "weweb build",
+    "serve": "weweb serve"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@weweb/cli": "latest"
+  }
+}
