@@ -30,32 +30,24 @@ import { computed, watch } from 'vue';
 // ── Built-in status color presets ──
 const STATUS_PRESETS = {
   // Lifecycle
-  draft:      { dot: '#3B82F6', text: '#1E40AF', bg: '#EFF6FF' },
-  pending:    { dot: '#F59E0B', text: '#B45309', bg: '#FFFBEB' },
-  approved:   { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },
-  confirmed:  { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },
+  draft:      { dot: '#6B7280', text: '#374151', bg: '#F3F4F6' },   // Gray
+  pending:    { dot: '#F59E0B', text: '#B45309', bg: '#FFFBEB' },   // Amber
+  approved:   { dot: '#3B82F6', text: '#1E40AF', bg: '#EFF6FF' },   // Blue
+  confirmed:  { dot: '#14B8A6', text: '#0F766E', bg: '#F0FDFA' },   // Teal
 
   // Fulfillment
-  partial:    { dot: '#F97316', text: '#C2410C', bg: '#FFF7ED' },
-  delivered:  { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },
-  shipped:    { dot: '#8B5CF6', text: '#6D28D9', bg: '#F5F3FF' },
-  packed:     { dot: '#6366F1', text: '#4338CA', bg: '#EEF2FF' },
-  received:   { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },
+  sent:       { dot: '#8B5CF6', text: '#6D28D9', bg: '#F5F3FF' },   // Purple
+  partial:    { dot: '#F97316', text: '#C2410C', bg: '#FFF7ED' },   // Orange
+  delivered:  { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },   // Green
+  completed:  { dot: '#059669', text: '#065F46', bg: '#ECFDF5' },   // Emerald
 
   // Financial
-  paid:       { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },
-  overdue:    { dot: '#EF4444', text: '#B91C1C', bg: '#FEF2F2' },
-  sent:       { dot: '#8B5CF6', text: '#6D28D9', bg: '#F5F3FF' },
+  paid:       { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },   // Green
+  overdue:    { dot: '#DC2626', text: '#991B1B', bg: '#FEF2F2' },   // Dark Red
 
   // Terminal
-  cancelled:  { dot: '#EF4444', text: '#B91C1C', bg: '#FEF2F2' },
-  closed:     { dot: '#6B7280', text: '#374151', bg: '#F3F4F6' },
-  rejected:   { dot: '#EF4444', text: '#B91C1C', bg: '#FEF2F2' },
-
-  // Generic
-  active:     { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },
-  inactive:   { dot: '#6B7280', text: '#374151', bg: '#F3F4F6' },
-  processing: { dot: '#F59E0B', text: '#B45309', bg: '#FFFBEB' },
+  cancelled:  { dot: '#EF4444', text: '#B91C1C', bg: '#FEF2F2' },   // Red
+  closed:     { dot: '#6B7280', text: '#374151', bg: '#F3F4F6' },   // Gray (secondary badge)
 };
 
 // Fallback for unknown statuses
