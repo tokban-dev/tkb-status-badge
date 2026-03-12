@@ -20,7 +20,7 @@ export default {
       /* wwEditor:start */
       bindingValidation: {
         type: 'string',
-        tooltip: 'Status text. Built-in presets: draft, pending, approved, confirmed, partial, delivered, shipped, packed, received, paid, overdue, sent, cancelled, closed, rejected',
+        tooltip: 'Status text. Built-in presets: draft, pending, approved, confirmed, sent, partial, delivered, completed, paid, overdue, cancelled, closed',
       },
       propertyHelp: { tooltip: 'Bind to your data row status field. Colors are auto-resolved from built-in presets. Use Custom Statuses to add your own.' },
       /* wwEditor:end */
