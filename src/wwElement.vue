@@ -27,31 +27,31 @@
 <script>
 import { computed, watch } from 'vue';
 
-// ── Built-in status color presets ──
+// ── Built-in status color presets (Tokban Design System 2025) ──
 const STATUS_PRESETS = {
   // Lifecycle
-  draft:      { dot: '#6B7280', text: '#374151', bg: '#F3F4F6' },   // Gray
-  pending:    { dot: '#F59E0B', text: '#B45309', bg: '#FFFBEB' },   // Amber
-  approved:   { dot: '#3B82F6', text: '#1E40AF', bg: '#EFF6FF' },   // Blue
-  confirmed:  { dot: '#14B8A6', text: '#0F766E', bg: '#F0FDFA' },   // Teal
+  draft:      { dot: '#A8A8A8', text: '#616161', bg: '#E8E8E8' },   // neutral
+  pending:    { dot: '#FFB300', text: '#7A5100', bg: '#FFF0CC' },   // warning
+  approved:   { dot: '#1565C0', text: '#0D47A1', bg: '#E8F1FA' },   // info
+  confirmed:  { dot: '#1565C0', text: '#0D47A1', bg: '#E8F1FA' },   // info
 
   // Fulfillment
-  sent:       { dot: '#8B5CF6', text: '#6D28D9', bg: '#F5F3FF' },   // Purple
-  partial:    { dot: '#F97316', text: '#C2410C', bg: '#FFF7ED' },   // Orange
-  delivered:  { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },   // Green
-  completed:  { dot: '#059669', text: '#065F46', bg: '#ECFDF5' },   // Emerald
+  sent:       { dot: '#4F0BA7', text: '#4F0BA7', bg: '#F0E8F8' },   // secondary (purple)
+  partial:    { dot: '#FFB300', text: '#7A5100', bg: '#FFF0CC' },   // warning
+  delivered:  { dot: '#4CAF50', text: '#1B5E20', bg: '#D7F0D7' },   // success
+  completed:  { dot: '#4CAF50', text: '#1B5E20', bg: '#EDFAED' },   // success (lighter)
 
   // Financial
-  paid:       { dot: '#22C55E', text: '#166534', bg: '#F0FDF4' },   // Green
-  overdue:    { dot: '#DC2626', text: '#991B1B', bg: '#FEF2F2' },   // Dark Red
+  paid:       { dot: '#4CAF50', text: '#1B5E20', bg: '#D7F0D7' },   // success
+  overdue:    { dot: '#E53935', text: '#B71C1C', bg: '#FAD8D7' },   // danger
 
   // Terminal
-  cancelled:  { dot: '#EF4444', text: '#B91C1C', bg: '#FEF2F2' },   // Red
-  closed:     { dot: '#6B7280', text: '#374151', bg: '#F3F4F6' },   // Gray (secondary badge)
+  cancelled:  { dot: '#E53935', text: '#B71C1C', bg: '#FEF2F2' },   // danger (lighter)
+  closed:     { dot: '#A8A8A8', text: '#616161', bg: '#E8E8E8' },   // neutral
 };
 
 // Fallback for unknown statuses
-const FALLBACK_COLORS = { dot: '#6B7280', text: '#374151', bg: '#F3F4F6' };
+const FALLBACK_COLORS = { dot: '#A8A8A8', text: '#616161', bg: '#E8E8E8' };
 
 function resolveColors(statusKey, customStatuses) {
   if (!statusKey) return FALLBACK_COLORS;
